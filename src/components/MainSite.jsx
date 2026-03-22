@@ -35,23 +35,6 @@ const MainSite = () => {
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-neon-purple/10 blur-[150px] rounded-full" />
       </div>
 
-      {/* Navbar */}
-      <nav className="sticky top-0 z-50 glass-neon border-b border-white/5 px-6 py-4">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center gap-2">
-             <span className="text-2xl font-black font-cyber text-glow-blue tracking-tighter">TS'26</span>
-          </motion.div>
-          <div className="hidden md:flex gap-8 items-center font-cyber text-xs uppercase tracking-widest text-white/70">
-             {["Events"].map(item => (
-               <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-neon-blue transition-colors">{item}</a>
-             ))}
-             <button className="px-6 py-2 glass border-neon-blue/40 rounded-full text-neon-blue hover:bg-neon-blue hover:text-black transition-all">
-                Register
-             </button>
-          </div>
-        </div>
-      </nav>
-
       {/* Hero Section */}
       <header className="relative py-24 px-6 text-center overflow-hidden">
         <motion.div
@@ -114,14 +97,19 @@ const MainSite = () => {
           viewport={{ once: true }}
           className="mt-20 flex justify-center"
         >
-          <button className="group relative px-10 py-4 bg-transparent font-cyber text-sm font-bold uppercase tracking-[0.3em] overflow-hidden rounded-full border border-white/10 hover:border-neon-blue/50 transition-all">
+          <a 
+            href="https://tech-sanskritii.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative px-10 py-4 bg-transparent font-cyber text-sm font-bold uppercase tracking-[0.3em] overflow-hidden rounded-full border border-white/10 hover:border-neon-blue/50 transition-all inline-block"
+          >
             <div className="absolute inset-0 bg-neon-blue/5 group-hover:bg-neon-blue/10 transition-colors" />
             <div className="absolute bottom-0 left-0 w-full h-[2px] bg-neon-blue scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
             <span className="relative z-10 flex items-center gap-3 text-white">
               Explore Full Website 
               <ExternalLink className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </span>
-          </button>
+          </a>
         </motion.div>
       </section>
 

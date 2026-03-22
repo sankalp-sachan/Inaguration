@@ -316,8 +316,8 @@ export default function PreInauguration({ onStart }) {
                 >
                   ✂️
                 </motion.span>
-                INAUGURATE 2026
-                <span className="text-xs mt-3 opacity-70 tracking-[0.6em] font-normal uppercase">Digital Ribbon Cut</span>
+                TECH SANSKRITI 2026
+                {/* <span className="text-xs mt-3 opacity-70 tracking-[0.6em] font-normal uppercase">Digital Ribbon Cut</span> */}
               </span>
             </motion.button>
           </motion.div>
