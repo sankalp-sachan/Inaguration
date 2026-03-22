@@ -166,11 +166,12 @@ export default function PreInauguration({ onStart }) {
         )}
 
         <div className="relative z-10 w-full max-w-6xl px-6 text-center">
-          <motion.div className="mb-12">
-            <h1 className="flex flex-wrap justify-center gap-x-2 md:gap-x-4 mb-4">
-              {"TECHSANSKRITI".split("").map((char, i) => (
+          <motion.div className="mb-12 flex flex-col items-center">
+            {/* Upper Line: TECH */}
+            <h1 className="flex justify-center gap-x-2 md:gap-x-4 mb-4">
+              {"TECH".split("").map((char, i) => (
                 <motion.span
-                  key={i}
+                  key={`tech-${i}`}
                   initial={{ opacity: 0, y: 150, filter: "blur(40px)", rotateY: 180, scale: 0.5 }}
                   animate={isRevealing ? { 
                     opacity: 1, 
@@ -190,10 +191,42 @@ export default function PreInauguration({ onStart }) {
                     type: "spring",
                     stiffness: 100 
                   }}
-                  whileHover={{ 
-                    scale: 1.1, 
-                    color: "#fff",
-                    filter: "drop-shadow(0 0 20px #00f3ff)" 
+                  className="text-7xl md:text-9xl font-black font-cyber tracking-tight cursor-default"
+                  style={{ 
+                    background: "linear-gradient(to bottom, #ffffff, #00f3ff, #bc13fe)", 
+                    WebkitBackgroundClip: "text", 
+                    WebkitTextFillColor: "transparent",
+                    filter: "drop-shadow(0 0 25px rgba(0, 243, 255, 0.4))"
+                  }}
+                >
+                  {char}
+                </motion.span>
+              ))}
+            </h1>
+
+            {/* Lower Line: SANSKRITI */}
+            <h1 className="flex justify-center gap-x-2 md:gap-x-4 mb-4">
+              {"SANSKRITI".split("").map((char, i) => (
+                <motion.span
+                  key={`sanskriti-${i}`}
+                  initial={{ opacity: 0, y: 150, filter: "blur(40px)", rotateY: 180, scale: 0.5 }}
+                  animate={isRevealing ? { 
+                    opacity: 1, 
+                    y: 0, 
+                    filter: "blur(0px)", 
+                    rotateY: 0,
+                    scale: 1,
+                    textShadow: [
+                      "0 0 0px #00f3ff",
+                      "0 0 30px #00f3ff",
+                      "0 0 10px #00f3ff"
+                    ]
+                  } : {}}
+                  transition={{ 
+                    delay: (i + 4) * 0.1 + 0.5, 
+                    duration: 1, 
+                    type: "spring",
+                    stiffness: 100 
                   }}
                   className="text-7xl md:text-9xl font-black font-cyber tracking-tight cursor-default"
                   style={{ 

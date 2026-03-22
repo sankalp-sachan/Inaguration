@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, Zap, User, Music, QrCode, Youtube, Mail, Phone, ExternalLink } from 'lucide-react';
+import { Calendar, MapPin, Zap, User, Users, Music, Mic, Book, QrCode, Youtube, Mail, Phone, ExternalLink } from 'lucide-react';
 
 const events = {
   technical: [
@@ -9,7 +9,12 @@ const events = {
     { title: "Algo Arena", description: "Competitive coding at its peak. Solve complex algorithms under the ticking clock of excellence.", icon: <Zap /> }
   ],
   cultural: [
-    { title: "Naktak Nukkad", description: "Bringing street theatre to the digital age. A blend of culture, satire, and powerful storytelling.", icon: <Music /> }
+    { title: "Nritya Shakti", description: "A vibrant showcase of solo and group dance blending Classical, Folk and Contemporary styles.", icon: <User /> },
+    { title: "Natak-Nukkad", description: "Powerful street plays reflecting social themes through impactful theatrical performances.", icon: <Users /> },
+    { title: "Sur-Sangam", description: "A soulful journey through classical and modern vocal and instrumental music.", icon: <Music /> },
+    { title: "Kavya Dhara", description: "A platform for spoken word, poetry and traditional Shayari.", icon: <Book /> },
+    { title: "ABHIVYAKTI", description: "An open mic arena for diverse talents to shine and express themselves freely.", icon: <Mic /> },
+    { title: "Soulful Echoes", description: "A storytelling space for artists to share narratives, memories and experiences.", icon: <Mic /> }
   ]
 };
 
@@ -101,6 +106,23 @@ const MainSite = () => {
             </div>
           </div>
         </div>
+
+        {/* Call to Action Button */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-20 flex justify-center"
+        >
+          <button className="group relative px-10 py-4 bg-transparent font-cyber text-sm font-bold uppercase tracking-[0.3em] overflow-hidden rounded-full border border-white/10 hover:border-neon-blue/50 transition-all">
+            <div className="absolute inset-0 bg-neon-blue/5 group-hover:bg-neon-blue/10 transition-colors" />
+            <div className="absolute bottom-0 left-0 w-full h-[2px] bg-neon-blue scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+            <span className="relative z-10 flex items-center gap-3 text-white">
+              Explore Full Website 
+              <ExternalLink className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            </span>
+          </button>
+        </motion.div>
       </section>
 
       {/* Minimal Footer */}

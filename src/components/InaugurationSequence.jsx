@@ -222,15 +222,74 @@ const HolographicDiya = ({ step }) => (
       </motion.g>
     </svg>
 
-    {/* The Sacred Wick Beam */}
-    <motion.div 
-      className="absolute top-[32%] left-1/2 -translate-x-1/2 w-[3px] h-14"
-      animate={{ opacity: [0.6, 1, 0.6] }}
-      transition={{ duration: 1, repeat: Infinity }}
-    >
-      <div className="w-full h-full bg-gradient-to-t from-transparent via-[#ffd700] to-white blur-[2px]" />
-      <div className="absolute inset-0 bg-white blur-[5px] opacity-40 animate-pulse" />
-    </motion.div>
+    {/* Spiritual Master Flame Integrated */}
+    <AnimatePresence>
+      {step >= 2 && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+          className="absolute top-[31%] left-1/2 -translate-x-1/2 z-20 pointer-events-none"
+        >
+          <div className="relative flex flex-col items-center justify-center">
+            {/* Multiple Glow Halos */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2">
+              {[...Array(3)].map((_, i) => (
+                <motion.div 
+                  key={i}
+                  animate={{ 
+                    scale: [1, 1.5 + i*0.2, 1], 
+                    opacity: [0.2 - i*0.05, 0.4 - i*0.05, 0.2 - i*0.05],
+                  }}
+                  transition={{ duration: 2 + i, repeat: Infinity }}
+                  className="absolute w-40 h-40 -translate-x-1/2 -translate-y-1/2 bg-accent-gold blur-[80px] rounded-full"
+                />
+              ))}
+            </div>
+            
+            {/* Premium Layered Flame */}
+            <div className="relative flex flex-col items-center">
+              {/* Flame Core - Blue/White */}
+              <motion.div 
+                animate={{ 
+                  scaleY: [1, 1.2, 0.9, 1.1],
+                  filter: ["brightness(1.5)", "brightness(2.5)", "brightness(2)"]
+                }}
+                transition={{ duration: 0.1, repeat: Infinity }}
+                className="w-8 h-28 bg-gradient-to-t from-blue-400 via-yellow-200 to-white rounded-full shadow-[0_0_50px_rgba(255,215,0,0.8)]" 
+                style={{ borderRadius: "50% 50% 50% 50% / 90% 90% 10% 10%" }}
+              />
+              
+              {/* Outer Flame - Gold/Orange */}
+              <motion.div 
+                animate={{ 
+                  scale: [1.1, 1.3, 1.05, 1.2],
+                  opacity: [0.4, 0.7, 0.5]
+                }}
+                transition={{ duration: 0.2, repeat: Infinity }}
+                className="absolute inset-x-0 top-0 h-32 bg-gradient-to-t from-orange-600/40 via-accent-gold/40 to-transparent blur-md rounded-full"
+              />
+
+              {/* Sacred Energy Sparks */}
+              {[...Array(5)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute w-1 h-1 bg-accent-gold rounded-full"
+                  animate={{ 
+                    y: [-20, -100],
+                    x: [(i-2)*15, (i-2)*30 + (Math.random()-0.5)*40],
+                    opacity: [0, 1, 0],
+                    scale: [1, 0.5, 0]
+                  }}
+                  transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.3 }}
+                />
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   </motion.div>
 );
 
@@ -322,68 +381,6 @@ export default function InaugurationSequence({ onComplete }) {
             >
               {/* High-End Holographic Diya */}
               <HolographicDiya step={step} />
-              
-              {/* Spiritual Master Flame */}
-              {step >= 2 && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute top-[31.5%] left-1/2 -translate-x-1/2"
-                >
-                  {/* Multiple Glow Halos */}
-                  {[...Array(3)].map((_, i) => (
-                    <motion.div 
-                      key={i}
-                      animate={{ 
-                        scale: [1, 1.5 + i*0.2, 1], 
-                        opacity: [0.2 - i*0.05, 0.4 - i*0.05, 0.2 - i*0.05],
-                      }}
-                      transition={{ duration: 2 + i, repeat: Infinity }}
-                      className="absolute w-40 h-40 -translate-x-1/2 -translate-y-1/2 bg-accent-gold blur-[80px] rounded-full"
-                    />
-                  ))}
-                  
-                  {/* Premium Layered Flame */}
-                  <div className="relative flex flex-col items-center">
-                    {/* Flame Core - Blue/White */}
-                    <motion.div 
-                      animate={{ 
-                        scaleY: [1, 1.2, 0.9, 1.1],
-                        filter: ["brightness(1.5)", "brightness(2.5)", "brightness(2)"]
-                      }}
-                      transition={{ duration: 0.1, repeat: Infinity }}
-                      className="w-6 h-24 bg-gradient-to-t from-blue-400 via-yellow-200 to-white rounded-full shadow-[0_0_50px_rgba(255,215,0,0.8)]" 
-                      style={{ borderRadius: "50% 50% 50% 50% / 90% 90% 10% 10%" }}
-                    />
-                    
-                    {/* Outer Flame - Gold/Orange */}
-                    <motion.div 
-                      animate={{ 
-                        scale: [1, 1.1, 0.95, 1.05],
-                        opacity: [0.6, 0.9, 0.7]
-                      }}
-                      transition={{ duration: 0.2, repeat: Infinity }}
-                      className="absolute inset-0 w-8 h-28 -translate-x-1 bg-gradient-to-t from-orange-600/40 via-accent-gold/40 to-transparent blur-md rounded-full shadow-[0_0_30px_rgba(255,140,0,0.4)]"
-                    />
-
-                    {/* Sacred Energy Sparks */}
-                    {[...Array(5)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        className="absolute w-1 h-1 bg-accent-gold rounded-full"
-                        animate={{ 
-                          y: [-20, -100],
-                          x: [(i-2)*10, (i-2)*20 + (Math.random()-0.5)*30],
-                          opacity: [0, 1, 0],
-                          scale: [1, 0.5, 0]
-                        }}
-                        transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.3 }}
-                      />
-                    ))}
-                  </div>
-                </motion.div>
-              )}
             </motion.div>
           )}
         </AnimatePresence>
