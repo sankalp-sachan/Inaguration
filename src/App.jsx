@@ -34,11 +34,14 @@ export default function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleStartInauguration = () => {
-    setStage('sequence');
+  const playMusic = () => {
     if (audioRef.current) {
       audioRef.current.play().catch(e => console.log("Audio play failed", e));
     }
+  };
+
+  const handleStartInauguration = () => {
+    setStage('sequence');
   };
 
   const handleInaugurationComplete = () => {
@@ -66,7 +69,7 @@ export default function App() {
             transition={{ duration: 0.8 }}
             className="fixed inset-0 z-50 overflow-hidden"
           >
-            <PreInauguration onStart={handleStartInauguration} />
+            <PreInauguration onStart={handleStartInauguration} onCut={playMusic} />
           </motion.div>
         )}
 

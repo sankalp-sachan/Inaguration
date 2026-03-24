@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Clock, MapPin, Calendar, Play } from 'lucide-react';
 
-export default function PreInauguration({ onStart }) {
+export default function PreInauguration({ onStart, onCut }) {
   const [isCut, setIsCut] = useState(false);
   const [isRevealing, setIsRevealing] = useState(false);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -33,6 +33,7 @@ export default function PreInauguration({ onStart }) {
 
   const handleCut = () => {
     setIsCut(true);
+    onCut?.();
     // Ribbon falls, then reveal name
     setTimeout(() => {
       setIsRevealing(true);
